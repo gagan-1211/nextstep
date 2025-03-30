@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Next Step - Shape Your Future</title>
+    <link rel="stylesheet" href="assets/vendors/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/extra.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --primary-color: #c859ed;
+            --secondary-color: #c859ed;
+            --accent-color: #FF6B6B;
+            --gradient-main: linear-gradient(120deg, #4776E6, #8E54E9);
+            --gradient-accent: linear-gradient(120deg, #FF6B6B, #FF8E53);
+            --gradient-bg: linear-gradient(135deg, #8BC6EC 0%, #9599E2 70%, rgba(15, 15, 15, 0.8) 100%);
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--gradient-bg);
+            color: #2D3436;
+        }
+
+        .cq-navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            margin: 20px 0;
+            padding: 15px 25px;
+        }
+
+        .nav-link {
+            color: #2D3436 !important;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            background: var(--primary-color);
+        }
+
+        .auth-btn {
+            background: linear-gradient(45deg, #c859ed, #FF6B6B);
+            color: white !important;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 25px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(200, 89, 237, 0.3);
+        }
+
+        .auth-btn:hover {
+            box-shadow: 0 0 30px rgba(200, 89, 237, 0.5);
+            background: linear-gradient(45deg, #c859ed, #FF6B6B), rgba(0, 0, 0, 0.1);
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .page-header h1 {
+            color: #2D3436;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .breadcrumb-item a, .breadcrumb-item.active {
+            color: #2D3436 !important;
+        }
+
+        .about-section-one-title, .about-section-two-title {
+            color: #2D3436;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .about-section-one-content p, .about-section-two-content p {
+            color: #2D3436;
+        }
+
+        .floating-shape {
+            background: var(--gradient-accent);
+            opacity: 0.3;
+        }
+
+        /* Add colorful accent shapes */
+        .accent-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .accent-circle-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #FF6B6B, rgba(0, 0, 0, 0.3));
+            top: 10%;
+            left: -150px;
+            opacity: 0.4;
+        }
+
+        .accent-circle-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #ca4fe9, rgba(0, 0, 0, 0.3));
+            bottom: 20%;
+            right: -100px;
+            opacity: 0.4;
+        }
+
+        .img-fluid {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animated background gradient */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cq-page-section {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Add new decorative elements */
+        .geometric-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 10%;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 15%;
+            left: 5%;
+        }
+
+        /* Add subtle grid background */
+        .page-about::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+        }
+
+        /* Add glow effect to buttons */
+        .auth-btn:hover {
+            box-shadow: 0 0 30px rgba(200, 89, 237, 0.5);
+        }
+
+        /* Enhanced hover animations */
+        .content-card {
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            border-color: var(--accent-color);
+        }
+
+        .img-fluid {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .img-fluid:hover {
+            transform: perspective(1000px) rotateY(10deg) translateY(-5px);
+            box-shadow: -20px 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-main);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: translateX(0);
+        }
+
+        .auth-btn {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FF6B6B, #c859ed);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(200, 89, 237, 0.4);
+        }
+
+        .auth-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Floating animation for shapes */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Pulse animation for accent circles */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.05); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 0.4; }
+        }
+
+        .accent-circle {
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        /* Title hover effect */
+        .about-section-one-title, .about-section-two-title {
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .about-section-one-title:hover, .about-section-two-title:hover {
+            transform: translateX(10px);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dropdown menu animation */
+        .dropdown-menu {
+            transition: all 0.3s ease;
+            transform-origin: top;
+            transform: scaleY(0);
+            opacity: 0;
+            display: block !important;
+            visibility: hidden;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            transform: scaleY(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-item {
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .dropdown-item::before {
+            content: '→';
+            position: absolute;
+            left: 10px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            padding-left: 30px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dropdown-item:hover::before {
+            opacity: 1;
+            left: 15px;
+        }
+
+        /* Page header animation */
+        .page-header h1 {
+            transition: transform 0.3s ease;
+        }
+
+        .page-header h1:hover {
+            transform: scale(1.05);
+        }
+
+        /* Breadcrumb hover effect */
+        .breadcrumb-item a {
+            transition: all 0.3s ease;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary-color) !important;
+            text-decoration: none;
+            transform: translateX(5px);
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cq-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light cq-navbar">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/nextstep.jpg" alt="cq" class="object-fit-sm-contain border-0 rounded">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="career-library.html">Career Library & Resources</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Services
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="services/career-center.html">Career Center</a>
+                                <a class="dropdown-item" href="services/career-pathways.html">Career Pathways</a>
+                                <a class="dropdown-item" href="services/virtual-consultations.html">Virtual Consultations</a>
+                                <a class="dropdown-item" href="services/learning-hub.html">Learning Hub</a>
+                                <a class="dropdown-item" href="services/events.html">Events & Workshops</a>
+                                <a class="dropdown-item" href="services/assessment-tools.html">Assessment Tools</a>
+                                <a class="dropdown-item" href="services/education-partnerships.html">School Partnerships</a>
+                                <a class="dropdown-item" href="quiz.html">Career Quiz</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link contact-highlight" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mt-2 mt-lg-0" id="auth-buttons">
+                        <li class="nav-item mr-2 mb-3 mb-lg-0">
+                            <a class="btn btn-secondary auth-btn" href="register.html">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary auth-btn" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-about">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="container">
+            <section class="page-header" data-aos="fade-up">
+                <div class="floating-shape" style="top: 20%; left: 10%;"></div>
+                <div class="floating-shape" style="top: 60%; right: 15%;"></div>
+                <h1>About Our Journey</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb cq-breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </section>
+            
+            <section class="cq-page-section pt-0">
+                <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0 pr-lg-0" data-aos="fade-right">
+                        <div class="content-card">
+                            <h2 class="about-section-one-title">
+                                Our Mission <span class="font-weight-normal">🚀</span>
+                            </h2>
+                            <div class="about-section-one-content">
+                                <p>At Next Step, our mission is to empower students to make informed decisions about their future careers. </p>
+
+                                <p>We believe that every student deserves access to personalized guidance, skill development opportunities, and real-world insights that can help them navigate the complex world of career choices with confidence. </p>
+                                
+                                <p class="mb-0">Our goal is to ensure that students are not just prepared for the job market, but are inspired to pursue careers that align with their passions, strengths, and values</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-lg-0 d-flex align-items-center" data-aos="fade-left">
+                        <img src="assets/images/about_img_1.png" alt="about" class="img-fluid">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cq-page-section">
+                <div class="row">
+                    <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-right">
+                        <img src="assets/images/about_img_2.png" alt="about 2" class="img-fluid">
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div class="content-card">
+                            <h2 class="about-section-two-title">Our Vision <span class="font-weight-normal">💫</span></h2>
+                            <div class="about-section-two-content">
+                                <p>We envision a world where every student is equipped with the tools and knowledge needed to pursue a fulfilling and impactful career. By leveraging cutting-edge AI technology and a vast network of industry professionals, we aim to close the gap between education and the workforce. </p>
+                                <p> Next Step strives to be the leading platform that bridges this gap, helping students to realize their potential and make choices that lead to lifelong success and satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add AOS library for scroll animations -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Career Quest - Your Future Adventure!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/extra.css">
+    <link rel="stylesheet" href="assets/css/career-library.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c859ed;
+            --secondary-color: #8E54E9;
+            --accent-color: #FF6B6B;
+            --gradient-main: linear-gradient(120deg, #c859ed, #8E54E9);
+            --gradient-accent: linear-gradient(120deg, #FF6B6B, #FF8E53);
+            --gradient-bg: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+            --text-primary: #2D3436;
+            --text-secondary: #475569;
+            --text-light: #ffffff;
+            --text-dark: #1a202c;
+            --text-muted: #64748b;
+            --link-color: #4f46e5;
+            --link-hover: #6366f1;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-dark);
+        }
+
+        /* Text Colors */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-dark);
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        /* Card Text Colors */
+        .career-card, .stream-card, .quest-card {
+            color: var(--text-dark);
+        }
+
+        .career-card h3, .stream-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .career-card p, .stream-card p {
+            color: var(--text-dark);
+        }
+
+        /* Stats and Info Text */
+        .stat {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .fun-fact {
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+
+        /* Career Paths Links */
+        .career-paths li a {
+            color: var(--link-color);
+            font-weight: 500;
+        }
+
+        .career-paths li a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Quiz Options */
+        .quiz-option {
+            color: var(--text-dark);
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+        }
+
+        .quiz-option:hover {
+            background: var(--link-color);
+            color: var(--text-light);
+        }
+
+        /* Achievement Text */
+        .achievement-unlocked {
+            color: var(--text-light);
+        }
+
+        /* Progress Stats */
+        .progress-stat h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Badge Text */
+        .badge-name {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Header Text */
+        .career-library-header {
+            background: var(--gradient-main);
+        }
+
+        .career-library-header h1,
+        .career-library-header p {
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stream Stats */
+        .stream-stats .stat {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Career Category Tags */
+        .career-category-tag {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            color: var(--text-dark);
+        }
+
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Quest List */
+        .quest-list li {
+            color: var(--text-dark);
+        }
+
+        .quest-list li label {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Buttons */
+        .career-quiz-btn {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .btn-filter {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .btn-filter.active {
+            color: var(--text-light);
+        }
+
+        /* Search Box */
+        .search-input {
+            color: var(--text-dark);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .cq-footer {
+            color: var(--text-light);
+        }
+
+        /* Comparison Tool */
+        .comparison-title {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .comparison-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Career Stats */
+        .salary-range {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .outlook-tag {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Description Text */
+        .career-section p {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .career-section ul li {
+            color: var(--text-dark);
+        }
+
+        /* Stream Advantages */
+        .stream-advantages li {
+            color: var(--text-dark);
+        }
+
+        /* Quiz Results */
+        .quiz-results h2 {
+            color: var(--primary-color);
+        }
+
+        .result-item h3 {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .result-item li {
+            color: var(--text-dark);
+        }
+
+        /* Navbar Styling */
+        .cq-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(200, 89, 237, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Career Library Header */
+        .career-library-header {
+            background: var(--gradient-main);
+            padding: 3rem 0;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(200, 89, 237, 0.2);
+        }
+
+        .career-library-header h1,
+        .career-library-header p {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stream Cards */
+        .stream-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(200, 89, 237, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stream-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(200, 89, 237, 0.2);
+        }
+
+        .stream-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stream-card ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .stream-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .stream-card ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .stream-card ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* Career Cards */
+        .career-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(200, 89, 237, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .career-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(200, 89, 237, 0.2);
+        }
+
+        .career-category-tag {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Filter Buttons */
+        .btn-filter {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid rgba(200, 89, 237, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-filter:hover, 
+        .btn-filter.active {
+            background: var(--gradient-main);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(200, 89, 237, 0.3);
+        }
+
+        /* Search Box */
+        .search-box {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input {
+            border: 2px solid rgba(200, 89, 237, 0.2);
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(200, 89, 237, 0.1);
+        }
+
+        /* Category Titles */
+        .category-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 2rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(200, 89, 237, 0.2);
+        }
+
+        /* Salary and Growth Tags */
+        .salary-range {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .outlook-tag {
+            background: #22c55e;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        /* Career Sections */
+        .career-section h4 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .career-section ul li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .cq-footer {
+            background: var(--gradient-main);
+            margin-top: 4rem;
+            padding: 3rem 0;
+        }
+
+        .cq-footer h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .btn-danger {
+            background: var(--accent-color);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Comparison Tool */
+        .comparison-header {
+            background: var(--gradient-main);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(200, 89, 237, 0.2);
+        }
+
+        .comparison-title {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .comparison-tool {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .vs-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .career-select {
+            flex: 1;
+            padding: 15px 25px;
+            border: 2px solid rgba(200, 89, 237, 0.2);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            background: white;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c859ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+        }
+
+        .career-select:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200, 89, 237, 0.1);
+        }
+
+        .career-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(200, 89, 237, 0.1);
+        }
+
+        .vs-badge {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0 2rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .vs-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            right: -100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FF6B6B, transparent);
+            z-index: -1;
+        }
+
+        .compare-btn {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            border: none;
+            padding: 1.2rem 3.5rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem auto;
+            display: block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        .compare-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .comparison-table {
+            margin-top: 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+            background: white;
+            color: var(--text-dark);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #c859ed, #8E54E9);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.2rem 1.5rem;
+            border-top: 1px solid #eee;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #f0f2f5;
+        }
+
+        /* Additional styles for comparison content */
+        .comparison-table .skill-list,
+        .comparison-table .balance-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .comparison-table .skill-list li,
+        .comparison-table .balance-list li {
+            margin: 5px 0;
+            padding: 8px 12px;
+            background: rgba(200, 89, 237, 0.1);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .comparison-table .salary-range {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table .growth-rate {
+            color: #8E54E9;
+            font-weight: 500;
+        }
+
+        .comparison-table .education-path {
+            color: var(--text-dark);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .comparison-table .work-environment {
+            color: var(--text-dark);
+            background: rgba(142, 84, 233, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .vs-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .vs-badge {
+                margin: 1.5rem auto;
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+
+            .vs-badge::before {
+                display: none;
+            }
+
+            .career-select {
+                width: 100%;
+                margin: 0;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+
+            .compare-btn {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cq-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light cq-navbar">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/nextstep.jpg" alt="NextStep">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="career-library.html">Career Library & Resources</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" role="button" data-toggle="dropdown">
+                                Services
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="services/career-center.html">Career Center</a>
+                                <a class="dropdown-item" href="services/career-pathways.html">Career Pathways</a>
+                                <a class="dropdown-item" href="services/virtual-consultations.html">Virtual Consultations</a>
+                                <a class="dropdown-item" href="services/learning-hub.html">Learning Hub</a>
+                                <a class="dropdown-item" href="services/events.html">Events & Workshops</a>
+                                <a class="dropdown-item" href="services/assessment-tools.html">Assessment Tools</a>
+                                <a class="dropdown-item" href="services/education-partnerships.html">School Partnerships</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mt-2 mt-lg-0" id="auth-buttons">
+                        <li class="nav-item mr-2 mb-3 mb-lg-0">
+                            <a class="btn btn-secondary auth-btn" href="register.html">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary auth-btn" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="career-library-header py-5">
+            <div class="container">
+                <h1 class="text-center mb-4">🎮 Career Quest: Your Future Adventure!</h1>
+                <p class="text-center lead">Level up your future! Explore exciting careers and unlock your potential</p>
+                
+                <!-- Progress Tracker -->
+                <div class="progress-tracker">
+                    <h3>Your Quest Progress 🎯</h3>
+                    <div class="progress-stat">
+                        <div class="progress-icon">⭐</div>
+                        <div class="progress-info">
+                            <h4>Quest Points: <span id="questPoints">0</span></h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="badge-collection">
+                        <div class="badge badge-locked" onclick="window.location.href='quiz.html'" style="cursor: pointer;">
+                            <div class="badge-icon">🎯</div>
+                            <div class="badge-name">Quiz Master</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Quests -->
+                <div class="quest-section mt-4">
+                    <h3>Daily Quests 📋</h3>
+                    <div class="quest-card">
+                        <h4>🎯 Today's Missions</h4>
+                        <ul class="quest-list">
+                            <li>
+                                <input type="checkbox" id="quest1"> 
+                                <label for="quest1">Explore 3 new careers (+50 points)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="quest2">
+                                <label for="quest2">Take a personality quiz (+100 points)</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="quest3">
+                                <label for="quest3">Watch a career video (+30 points)</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Stream Selection Guide -->
+                <div class="stream-guide mb-5">
+                    <h3 class="text-center">Choose Your Path! 🎮</h3>
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="stream-card">
+                                <h4>🔬 Science (PCM)</h4>
+                                <div class="fun-fact">
+                                    Did you know? 90% of today's jobs didn't exist 50 years ago!
+                                </div>
+                                <p>Perfect for: Future Engineers & Tech Wizards</p>
+                                <ul class="career-paths">
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Software Developer')">👨‍💻 Software Developer</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Engineer')">🛠 Engineer</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Scientist')">🔬 Scientist</a></li>
+                                </ul>
+                                <div class="stream-stats">
+                                    <span class="stat">🎯 Success Rate: 85%</span>
+                                    <span class="stat">💰 Earning Potential: High</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stream-card">
+                                <h4>🧬 Science (PCB)</h4>
+                                <div class="fun-fact">
+                                    Fun Fact: The human body has over 37 trillion cells!
+                                </div>
+                                <p>Perfect for: Future Doctors & Life Scientists</p>
+                                <ul class="career-paths">
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Doctor')">👨‍⚕ Doctor</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Dentist')">🦷 Dentist</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Biotechnologist')">🧬 Biotechnologist</a></li>
+                                </ul>
+                                <div class="stream-stats">
+                                    <span class="stat">🎯 Success Rate: 80%</span>
+                                    <span class="stat">💰 Earning Potential: Very High</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stream-card">
+                                <h4>💰 Commerce</h4>
+                                <div class="fun-fact">
+                                    Cool Fact: The first bank was created in 1472!
+                                </div>
+                                <p>Perfect for: Future Business Leaders</p>
+                                <ul class="career-paths">
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('CA')">💼 CA/Accountant</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Business Manager')">👔 Business Manager</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Banker')">🏦 Banker</a></li>
+                                </ul>
+                                <div class="stream-stats">
+                                    <span class="stat">🎯 Success Rate: 75%</span>
+                                    <span class="stat">💰 Earning Potential: High</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stream-card">
+                                <h4>🎨 Arts/Humanities</h4>
+                                <div class="fun-fact">
+                                    Amazing Fact: Most successful YouTubers studied Arts!
+                                </div>
+                                <p>Perfect for: Future Creators & Thinkers</p>
+                                <ul class="career-paths">
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Teacher')">👨‍🏫 Teacher</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Designer')">🎨 Designer</a></li>
+                                    <li><a href="javascript:void(0)" onclick="watchCareerVideo('Content Creator')">🎥 Content Creator</a></li>
+                                </ul>
+                                <div class="stream-stats">
+                                    <span class="stat">🎯 Success Rate: 70%</span>
+                                    <span class="stat">💰 Earning Potential: Varies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-box mt-4">
+                    <div class="search-input-wrapper">
+                        <input type="text" id="careerSearch" class="form-control" placeholder="Search careers by title, skills, or category...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+                <div class="filter-section mt-4">
+                    <button class="btn btn-filter active" data-filter="all">All</button>
+                    <button class="btn btn-filter" data-filter="technology">Technology</button>
+                    <button class="btn btn-filter" data-filter="creative">Creative & Arts</button>
+                    <button class="btn btn-filter" data-filter="healthcare">Healthcare</button>
+                    <button class="btn btn-filter" data-filter="business">Business</button>
+                    <button class="btn btn-filter" data-filter="education">Education</button>
+                    <button class="btn btn-filter" data-filter="hospitality">Hospitality</button>
+                    <button class="btn btn-filter" data-filter="sports">Sports</button>
+                    <button class="btn btn-filter" data-filter="digital">Digital Media</button>
+                    <button class="btn btn-filter" data-filter="finance">Finance</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="career-categories py-5">
+            <div class="container">
+                <!-- Technology Careers -->
+                <div class="career-category" id="technology">
+                    <h2 class="category-title">Technology Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <span class="career-category-tag">Technology</span>
+                                    <h3>Software Developer</h3>
+                                    <span class="salary-range">₹3,00,000 - ₹8,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">High Demand</span>
+                                        <span class="growth-rate">+25% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <div class="career-section">
+                                        <h4><i class="fas fa-tools"></i> Required Skills</h4>
+                                        <ul>
+                                            <li>Programming languages (Java, Python, JavaScript)</li>
+                                            <li>Problem-solving abilities</li>
+                                            <li>Logical thinking</li>
+                                            <li>Basic mathematics</li>
+                                        </ul>
+                                    </div>
+                                    <div class="career-section">
+                                        <h4><i class="fas fa-graduation-cap"></i> Education</h4>
+                                        <p>After 10th: Science stream (PCM) → B.Tech/BCA in Computer Science</p>
+                                    </div>
+                                    <div class="career-section">
+                                        <h4><i class="fas fa-building"></i> Work Environment</h4>
+                                        <p>Office or work-from-home, team collaboration, flexible timing</p>
+                                    </div>
+                                    <div class="career-section">
+                                        <h4><i class="fas fa-clock"></i> Work-Life Balance</h4>
+                                        <div class="balance-indicators">
+                                            <span class="indicator">40-45 hour week</span>
+                                            <span class="indicator">Flexible hours</span>
+                                            <span class="indicator">Remote work possible</span>
+                                        </div>
+                                    </div>
+                                    <div class="career-section">
+                                        <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                        <p>Create computer programs and mobile apps. If you enjoy solving puzzles and working with computers, this could be perfect for you!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Data Scientist</h3>
+                                    <span class="salary-range">₹6,00,000 - ₹20,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Statistics and Mathematics</li>
+                                        <li>Machine Learning</li>
+                                        <li>Python, R</li>
+                                        <li>Data Visualization</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>Master's degree in Data Science, Statistics, or related field</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Data Scientist → Lead Data Scientist → Chief Data Officer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Cloud Architect</h3>
+                                    <span class="salary-range">₹8,00,000 - ₹30,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Cloud platforms (AWS, Azure, GCP)</li>
+                                        <li>Network architecture</li>
+                                        <li>Security protocols</li>
+                                        <li>System design</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>Bachelor's/Master's in Computer Science with cloud certifications</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Cloud Architect → Enterprise Architect → CTO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Healthcare Careers -->
+                <div class="career-category" id="healthcare">
+                    <h2 class="category-title">Healthcare Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Medical Doctor</h3>
+                                    <span class="salary-range">₹8,00,000 - ₹40,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Clinical knowledge</li>
+                                        <li>Patient care</li>
+                                        <li>Diagnostic abilities</li>
+                                        <li>Communication skills</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>MBBS + MD/MS specialization</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Resident → Consultant → Head of Department</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Nurse Practitioner</h3>
+                                    <span class="salary-range">₹4,00,000 - ₹12,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Patient care</li>
+                                        <li>Medical procedures</li>
+                                        <li>Health assessment</li>
+                                        <li>Emergency response</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>B.Sc Nursing + M.Sc Nursing</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Nurse → Nursing Supervisor → Chief Nursing Officer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Careers -->
+                <div class="career-category" id="business">
+                    <h2 class="category-title">Business Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Financial Analyst</h3>
+                                    <span class="salary-range">₹5,00,000 - ₹15,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Financial modeling</li>
+                                        <li>Data analysis</li>
+                                        <li>Excel expertise</li>
+                                        <li>Business acumen</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>B.Com/BBA + MBA Finance</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Analyst → Investment Manager → CFO</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Marketing Manager</h3>
+                                    <span class="salary-range">₹6,00,000 - ₹20,00,000/year</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Digital marketing</li>
+                                        <li>Brand management</li>
+                                        <li>Market analysis</li>
+                                        <li>Campaign planning</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>BBA/MBA in Marketing</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Manager → Marketing Director → CMO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Careers -->
+                <div class="career-category" id="creative">
+                    <h2 class="category-title">Creative Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Digital Artist</h3>
+                                    <span class="salary-range">₹2,50,000 - ₹6,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">Growing Field</span>
+                                        <span class="growth-rate">+15% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Drawing skills</li>
+                                        <li>Creativity</li>
+                                        <li>Digital tools</li>
+                                        <li>Color theory</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Any stream → Bachelor's in Fine Arts/Animation/Design</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Designer → Art Director → Creative Director</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Create digital artwork for games, movies, or advertising. Perfect for artistic minds who love computers!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Chef</h3>
+                                    <span class="salary-range">₹2,00,000 - ₹5,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">Steady Growth</span>
+                                        <span class="growth-rate">+10% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Cooking</li>
+                                        <li>Food presentation</li>
+                                        <li>Kitchen management</li>
+                                        <li>Creativity</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Hotel Management diploma → Culinary Arts degree</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Chef → Head Chef → Executive Chef</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Create delicious dishes and run restaurant kitchens. Great for those who love cooking and being creative with food!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Fashion Designer</h3>
+                                    <span class="salary-range">₹2,50,000 - ₹6,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">Growing Industry</span>
+                                        <span class="growth-rate">+15% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Design skills</li>
+                                        <li>Creativity</li>
+                                        <li>Sketching</li>
+                                        <li>Color coordination</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Any stream → Fashion Design diploma/degree</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Designer → Art Director → Creative Director</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Create clothing and accessories. Great for those interested in fashion and design!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Engineering Careers -->
+                <div class="career-category" id="engineering">
+                    <h2 class="category-title">Engineering Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Mechanical Engineer</h3>
+                                    <span class="salary-range">₹4,00,000 - ₹15,00,000</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>CAD/CAM</li>
+                                        <li>Product Design</li>
+                                        <li>Thermal Systems</li>
+                                        <li>Manufacturing Processes</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>B.Tech/M.Tech in Mechanical Engineering</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Engineer → Project Manager → Technical Director</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Civil Engineer</h3>
+                                    <span class="salary-range">₹3,50,000 - ₹14,00,000</span>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Structural Design</li>
+                                        <li>Construction Management</li>
+                                        <li>AutoCAD</li>
+                                        <li>Project Planning</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>B.Tech/M.Tech in Civil Engineering</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Site Engineer → Project Manager → Construction Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Careers -->
+                <div class="career-category" id="education">
+                    <h2 class="category-title">Education Careers</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Teacher</h3>
+                                    <span class="salary-range">₹2,50,000 - ₹5,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">Always in Demand</span>
+                                        <span class="growth-rate">+8% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Communication</li>
+                                        <li>Patience</li>
+                                        <li>Subject knowledge</li>
+                                        <li>Leadership</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Any stream → B.Ed after graduation</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Teacher → Department Head → Principal</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Shape young minds and inspire learning. Perfect for those who love teaching and working with students!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Sports Coach</h3>
+                                    <span class="salary-range">₹2,00,000 - ₹5,00,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">Good Growth</span>
+                                        <span class="growth-rate">+12% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Sports knowledge</li>
+                                        <li>Teaching ability</li>
+                                        <li>Leadership</li>
+                                        <li>Motivation</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Any stream → B.P.Ed or Sports Coaching certification</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Coach → Team Manager → Head Coach</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Train and mentor athletes. Perfect for sports enthusiasts who enjoy teaching others!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="career-card">
+                                <div class="career-header">
+                                    <h3>Healthcare Assistant</h3>
+                                    <span class="salary-range">₹1,80,000 - ₹3,50,000 (Starting)</span>
+                                    <div class="job-outlook">
+                                        <span class="outlook-tag positive">High Demand</span>
+                                        <span class="growth-rate">+20% growth expected</span>
+                                    </div>
+                                </div>
+                                <div class="career-body">
+                                    <h4>Required Skills:</h4>
+                                    <ul>
+                                        <li>Patient care</li>
+                                        <li>Basic medical knowledge</li>
+                                        <li>Empathy</li>
+                                        <li>Communication</li>
+                                    </ul>
+                                    <h4>Education:</h4>
+                                    <p>After 10th: Science stream → Diploma in Healthcare</p>
+                                    <h4>Growth Opportunities:</h4>
+                                    <p>Senior Healthcare Assistant → Healthcare Coordinator → Healthcare Manager</p>
+                                    <h4><i class="fas fa-info-circle"></i> Description</h4>
+                                    <p>Help care for patients in healthcare settings. Great for those who want to help others!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more career categories here -->
+            </div>
+        </section>
+
+        <!-- Career Comparison Tool -->
+        <section class="career-comparison py-5">
+            <div class="container">
+                <div class="comparison-header">
+                    <h3 class="comparison-title">🌟 Career Face-Off: Battle of Dreams! 🌟</h3>
+                    <p class="comparison-subtitle">Confused between two careers? Let's compare them side by side and find your perfect match!</p>
+                </div>
+                <div class="comparison-tool">
+                    <div class="comparison-selectors">
+                        <div class="vs-container">
+                            <select class="form-control career-select" id="career1">
+                                <option value="">Choose Your First Career</option>
+                            </select>
+                            <div class="vs-badge">VS</div>
+                            <select class="form-control career-select" id="career2">
+                                <option value="">Choose Your Second Career</option>
+                            </select>
+                        </div>
+                        <button class="compare-btn">Let's Compare! 🚀</button>
+                    </div>
+                    <div id="comparison-result" class="mt-4"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cq-footer text-white">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-xl-6 col-lg-7 col-md-8">
+                    <h2 class="mb-0">Have questions about career paths? Contact us.</h2>
+                </div>
+                <div class="col-md-4 col-lg-5 col-xl-6 py-3 py-md-0 d-md-flex align-items-center justify-content-end">
+                    <a href="contact.html" class="btn btn-danger btn-lg">Contact Us</a>
+                </div>
+            </div>
+            <div class="row footer-widget-area">
+                <div class="col-md-3">
+                    <div class="py-3 fw-bolder">NextStep</div>
+                    <p class="font-os font-weight-semibold mb-3">Learn more about us</p>
+                </div>
+                <div class="col-md-3 mt-3 mt-md-0">
+                    <p>&copy; 2024 NextStep. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Career Quest Scripts -->
+    <script src="assets/js/career-data.js"></script>
+    <script src="assets/js/quiz-data.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
